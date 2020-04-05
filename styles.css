@@ -27,13 +27,18 @@ h1, h2, h3 {
     padding: 1em 0;
 }
 
+h1 {
+    font-size: 3em;;
+}
+
 p {
     padding: 1em 0;
 }
 
 .btn {
     display: inline-block;
-    background: #333;
+    width: 10em;
+    background: rgb(11, 128, 11);
     color: #fff;
     text-decoration: none;
     padding: 1em 2em;
@@ -61,17 +66,21 @@ p {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 450px;
+    height: 100%;
     z-index: -1;
     opacity: 0.5;
 }
 
-#showcase h1 {
+/* #showcase h1 {
     padding-top: 100px;
-}
+} */
 
 #showcase .content-wrap {
     padding: 0 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Section A */
@@ -132,4 +141,60 @@ p {
 
 #main-footer a {
     color: rgb(11, 128, 11);
+}
+
+/* Media Queries */
+
+/* Any style we put in here are going to be in effect if the width is above 700px */
+@media(min-width: 700px){
+    /* test if the media query is working */
+    /* body {
+        display: none; 
+    } */
+
+    #showcase {
+        min-height: 90vh;
+    }
+
+    /* #showcase .bg-image {
+    height: 100%;
+} */
+
+    .grid {
+        display: grid;
+        /* grid-template-columns: 20px 20px 20px; */
+
+        /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+        /* grid-template-columns: 1fr repeat(2, 1fr) 1fr; same as above */
+
+        /* side columns will take more or less space depending on the screen width is more or less */
+        grid-template-columns: 1fr repeat(2, minmax(auto, 25em)) 1fr; 
+    }
+
+    #section-a .content-text {
+        columns: 2;
+        column-gap: 2em;
+    }
+
+    #section-a .content-text p {
+        padding-top: 0;
+    }
+
+    .content-wrap, 
+    #section-b ul {
+        grid-column: 2/4;
+    }
+
+    .box, #main-footer div {
+        grid-column: span 2;
+    }
+
+    #section-b ul {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    #section-b li {
+        width: 31%;
+    }
 }
